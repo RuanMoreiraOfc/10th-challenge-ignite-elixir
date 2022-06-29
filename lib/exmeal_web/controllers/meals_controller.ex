@@ -1,20 +1,19 @@
 defmodule ExmealWeb.MealsController do
   use ExmealWeb, :controller
 
-  action_fallback FallbackController
+  alias ExmealWeb.FallbackController
 
-  def create() do
-   # TO DO
+  action_fallback(FallbackController)
+
+  def create(conn, params) do
   end
 
-  def delete() do
-    # TO DO
+  def delete(conn, %{"id" => id}) do
   end
 
-  def show() do
-    # TO DO
+  def show(conn, %{"id" => id}) do
   end
 
-  def update() do
-    # TO DO
+  def update(conn, params) do
+  end
 end
