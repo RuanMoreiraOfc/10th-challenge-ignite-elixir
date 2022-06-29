@@ -15,6 +15,11 @@ defmodule ExmealWeb.MealsController do
   end
 
   def delete(conn, %{"id" => id}) do
+    with {:ok, %Meal{}} <- Exmeal.delete_meal(id) do
+      conn
+      |> put_status(:no_content)
+      |> text("")
+    end
   end
 
   def show(conn, %{"id" => id}) do
