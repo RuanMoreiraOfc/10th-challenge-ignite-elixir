@@ -28,5 +28,15 @@ defmodule Exmeal.User.UpdateTest do
 
       assert {:error, %Exmeal.Error{result: "User not found", status: :not_found}} = response
     end
+
+    test "when a valid id is given, but wrong params, returns an error" do
+      user_params = build(:users_params)
+
+      {:ok, %User{id: id}} = Exmeal.create_user(user_params)
+
+      response = Exmeal.update_user(%{"id" => id, "name" => nil})
+
+      assert {:error, %Exmeal.Error{status: :bad_request}} = response
+    end
   end
 end
