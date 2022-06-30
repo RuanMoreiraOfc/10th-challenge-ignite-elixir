@@ -7,8 +7,8 @@ defmodule Exmeal.Factory do
     %{
       description: "Banana",
       date: "2001-05-02",
-      calories: "20",
-      user_id: "388fccf4-f3bb-4822-9817-973a62158d20"
+      calories: "20"
+      # user_id: "388fccf4-f3bb-4822-9817-973a62158d20"
     }
   end
 
@@ -17,7 +17,7 @@ defmodule Exmeal.Factory do
       description: "banana",
       date: "2001-05-02",
       calories: "2",
-      user_id: "388fccf4-f3bb-4822-9817-973a62158d20",
+      # user_id: "388fccf4-f3bb-4822-9817-973a62158d20",
       id: "69961117-d966-4e2f-ac55-476d4f78ddfa"
     }
   end
@@ -30,12 +30,12 @@ defmodule Exmeal.Factory do
     }
   end
 
-  def user_factory do
-    %User{
-      name: "Jp",
-      email: "jp@banana.com",
-      cpf: "12345678900",
-      id: "69961117-d966-4e2f-ac55-476d4f78dddf"
-    }
-  end
+  # def user_factory do
+  #   %User{
+  #     name: "Jp",
+  #     email: "jp@banana.com",
+  #     cpf: "12345678900",
+  #     id: "69961117-d966-4e2f-ac55-476d4f78dddf"
+  #   }
+  # end
 end
