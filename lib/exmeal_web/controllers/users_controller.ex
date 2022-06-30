@@ -30,7 +30,11 @@ defmodule ExmealWeb.UsersController do
     end
   end
 
-  def update() do
-    # TO DO
+  def update(conn, params) do
+    with {:ok, %User{} = user} <- Exmeal.update_user(params) do
+      conn
+      |> put_status(:ok)
+      |> render("user.json", user: user)
+    end
   end
 end
