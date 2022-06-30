@@ -14,8 +14,12 @@ defmodule ExmealWeb.UsersController do
     end
   end
 
-  def delete() do
-    # TO DO
+  def delete(conn, %{"id" => id}) do
+    with {:ok, %User{}} <- Exmeal.delete_user(id) do
+      conn
+      |> put_status(:no_content)
+      |> text("")
+    end
   end
 
   def show() do
