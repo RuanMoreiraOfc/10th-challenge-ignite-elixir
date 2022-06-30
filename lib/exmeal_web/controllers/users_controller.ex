@@ -22,8 +22,12 @@ defmodule ExmealWeb.UsersController do
     end
   end
 
-  def show() do
-    # TO DO
+  def show(conn, %{"id" => id}) do
+    with {:ok, %User{} = user} <- Exmeal.get_user_by_id(id) do
+      conn
+      |> put_status(:ok)
+      |> render("user.json", user: user)
+    end
   end
 
   def update() do
