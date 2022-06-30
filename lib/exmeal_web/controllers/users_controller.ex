@@ -1,10 +1,17 @@
 defmodule ExmealWeb.UsersController do
   use ExmealWeb, :controller
 
-  action_fallback FallbackController
+  alias Exmeal.User
+  alias ExmealWeb.FallbackController
 
-  def create() do
-    # TO DO
+  action_fallback(FallbackController)
+
+  def create(conn, params) do
+    with {:ok, %User{} = user} <- Exmeal.create_user(params) do
+      conn
+      |> put_status(:created)
+      |> render("create.json", user: user)
+    end
   end
 
   def delete() do
